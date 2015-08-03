@@ -1,0 +1,1 @@
+The Java Practice repository contains packages with classes concentrating on particular functionality in java library. All exercises are created By David Sajdl to practice Java library such as Collection, HasMap, etc.
