@@ -1,0 +1,33 @@
+City of London, 3.1515
+Barking and Dagenham, 37.779
+Barnet, 86.736
+Bexley, 64.264 
+Brent, 43.235 
+Bromley, 150.15 
+Camden, 21.796 
+Croydon, 86.519 
+Ealing, 55.528 
+Enfield, 82.201
+Greenwich, 50.38
+Hackney, 19.064
+Hammersmith and Fulham, 17.161
+Haringey, 29.587 
+Harrow, 50.469
+Havering, 114.47
+Hillingdon, 115.7
+Hounslow, 56.593
+Islington, 14.86
+Kensington and Chelsea, 12.39
+Kingston upon Thames, 37.247
+Lambeth, 27.253
+Lewisham, 35.323 
+Merton, 37.609
+Newham, 38.676
+Redbridge, 56.436
+Richmond upon Thames, 58.768
+Southwark, 29.897
+Sutton, 43.851
+Tower Hamlets, 21.567 
+Waltham Forest, 38.815
+Wandsworth, 35.22
+Westminster, 22.03
