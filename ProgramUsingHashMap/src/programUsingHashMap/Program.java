@@ -11,6 +11,9 @@ public class Program {
 		try{
 			hm.putAll(rf.readFile("londonArea.txt"));
 			System.out.println(hm);
+			LondonInformation li = new LondonInformation(hm);
+			System.out.println("London area is " + li.areaOfLondon() +"km2");
+			li.printLondonBorough();
 		} catch (Exception e){
 			System.out.println("Error occur:" + e.toString());
 		}
