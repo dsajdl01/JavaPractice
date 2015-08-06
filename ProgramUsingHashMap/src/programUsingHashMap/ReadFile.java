@@ -13,7 +13,6 @@ public class ReadFile {
 		
 	
 	public Map<String, Property> filereader(String filename) throws Exception{
-		
 		HashMap<String, Property> map = new HashMap<String, Property>();
 		Path file = Paths.get(filename);
 		byte[]  bytes = Files.readAllBytes(file);
@@ -59,19 +58,9 @@ public class ReadFile {
             // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             while((line = bufferedReader.readLine()) != null) {
-            	String[] tempArr = line.split(",");
-            	if(chackingStrings(tempArr[0], tempArr[1])){
-            		hash.put(tempArr[0], Double.parseDouble(tempArr[1].trim()));
-            	}else {
-            		throw new TheException(line + " has not been validated!");            		
-            	}
-            }    
-            // closing files.
-            bufferedReader.close();
-            return hash;
-        } catch (TheException tEx) {
-        	System.out.println("Error: The line " + tEx.toString());
-        	return null;
+            	System.out.println(line);
+             }    
+            return null;
         }
         catch(IOException ex) {
         	System.out.println("Error reading file '" 
