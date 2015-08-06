@@ -6,6 +6,7 @@ public class Program {
 
 	public static void main(String[] args) throws Exception {
 		HashMap<String, Double> hm = new HashMap<String, Double>();
+		HashMap<String, Property> hash = new HashMap<String, Property>();
 		// TODO Auto-generated method stub
 		ReadFile rf = new ReadFile();
 		try{
@@ -13,7 +14,8 @@ public class Program {
 			System.out.println(hm);
 			LondonInformation li = new LondonInformation(hm);
 			System.out.println("London area is " + li.areaOfLondon() +"km2");
-			li.printLondonBorough();
+			//li.printLondonBorough();
+			System.out.println(rf.filereader("londonAtributes.txt"));
 		} catch (Exception e){
 			System.out.println("Error occur:" + e.toString());
 		}
