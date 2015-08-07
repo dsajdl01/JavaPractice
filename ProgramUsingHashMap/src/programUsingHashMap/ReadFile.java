@@ -66,7 +66,6 @@ public class ReadFile {
             	if(arrayIsValid(a)){
             		leg = new LondonEthnicGroup((a[1]),getInt(a[2]),getInt(a[3]),getInt(a[4]),getInt(a[5]),getInt(a[6]),getInt(a[7]),getInt(a[8]),getInt(a[9]),getInt(a[10]),getInt(a[11]),getInt(a[12]),getInt(a[13]),getInt(a[14]),getInt(a[15]),getInt(a[16]),getInt(a[17]),getInt(a[18]));
             		hash.put(a[0], leg);
-            		System.out.println(line);
             	} else {
             		throw new TheException ("Data is not validated, on line: " + line);
             	}

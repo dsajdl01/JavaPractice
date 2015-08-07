@@ -18,7 +18,9 @@ public class Program {
 			//li.printLondonBorough();;
 			hash.putAll(rf.filereader("londonAtributes.txt"));
 			LondonInformation li = new LondonInformation(hash);
-			System.out.println("London area is " + li.getAreaOfLondon());
+			System.out.println("London area has " + li.getAreaOfLondon() + "km2");
+			System.out.println("the London's biggest borough is: " + li.getBiggestBorough());
+			System.out.println("the London's smallest borough is: " + li.getsmallestBorough());
 		} catch (Exception e){
 			System.out.println("Error occur:" + e.toString());
 		}

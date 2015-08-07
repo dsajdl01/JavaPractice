@@ -21,27 +21,33 @@ public class LondonInformation {
     	}
 		return total;
 	}
-	/**
-	public LondonInformation( Map<String, Double> hash) throws TheException{
-		if(hash.isEmpty()) { throw new TheException("The hash does not contain any value");}
-		this.hash.putAll(hash);
-	}
-	
-	public Double areaOfLondon(){
-		Double total = 0.0;
-		Collection<Double> values = hash.values();
-    	for (Double value : values) {
-    	   total += value;
-    	}
-		return total;
-	}
-	
-	public void printLondonBorough(){
-		Set<String> keys = hash.keySet();
-		for(String key : keys){
-			 System.out.println(key);
+	public String getBiggestBorough(){
+		Double greater = 0.0;
+		Property pr;
+		String borough ="";
+		for(Map.Entry<String, Property> e : hash.entrySet()){
+			 String key = e.getKey();
+			 pr = e.getValue();
+			 if(greater < pr.getArae()){
+				 greater = pr.getArae();
+				 borough = key;
+			 }
 		}
+    	return borough + " "+greater +"km2";
 	}
-	//London area is 1594.7255km2
-	*/
+	
+	public String getsmallestBorough(){
+		Double smaller = 2000.0;
+		Property pr;
+		String borough ="";
+		for(Map.Entry<String, Property> e : hash.entrySet()){
+			 String key = e.getKey();
+			 pr = e.getValue();
+			 if(smaller > pr.getArae()){
+				 smaller = pr.getArae();
+				 borough = key;
+			 }
+		}
+		return borough + " "+smaller +"km2";
+	}
 }
