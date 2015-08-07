@@ -3,7 +3,7 @@ package programUsingHashMap;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
+import java.util.Map.Entry;
 
 public class LondonInformation {
 	
@@ -13,6 +13,32 @@ public class LondonInformation {
 		if(p.isEmpty()) return;
 		hash.putAll(p);
 	}
+	public int[] getLondonInformation(){
+		int[] info = {0,0,0,0,0,0};
+		Collection<Property> values = hash.values();
+    	for (Property value : values) {
+    		info[0] += value.getPopulation();
+    		info[1] += value.getMale();
+    		info[2] += value.getFemale();
+    		info[3] += value.getLiningHouse();
+    		info[4] += value.getLiningCommunal();
+    		info[5] += value.getStudents();
+    	}
+		return info;
+	}
+	public Property getBorough(String bor){
+		if(hash.containsKey(bor)){
+			for(Entry<String, Property> entry : hash.entrySet()){
+				if(entry.getKey().equals(bor.trim())){
+					return entry.getValue();
+				}
+			}
+			return null;
+		} else {
+			return null;
+		}
+	}
+	
 	public double getAreaOfLondon(){
 		Double total = 0.0;
 		Collection<Property> values = hash.values();
@@ -49,5 +75,14 @@ public class LondonInformation {
 			 }
 		}
 		return borough + " "+smaller +"km2";
+	}
+	public void printAllBorougth(){
+		System.out.println("\nBorough,  All_population,  Male,   Female,  Live_House, Live_Communal, Students, Area_km ");
+		for(Map.Entry<String, Property> e : hash.entrySet()){
+			 Property val = e.getValue();
+			 System.out.println( e.getKey() +",    " + val.getPopulation() + ",    " + val.getMale() + 
+					 ",   " + val.getFemale() + ",    " + val.getLiningHouse() + ",      " + val.getLiningCommunal() +
+					 ",      " + val.getStudents() + ",      " + val.getArae());
+		}
 	}
 }

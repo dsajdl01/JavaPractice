@@ -6,10 +6,10 @@ public class LondonEthnicGroup {
 	int india, pakis, bang, otherAsia, blackCar, afrBlack, otherBlack, chinese, otherEtnicGroup;
 	
 	public LondonEthnicGroup(String bor,int all, int br, int ir, int otWH, int wb, int wba,int wa,int om, int i, int p, int b, int oa, int bc, int ab, int ob, int ch, int oeg){
-		this.borough = bor;
+		this.borough = bor.trim();
 		this.allPeople = all;
 		this.whiBrith = br;
-		this.india = ir;
+		this.irish = ir;
 		this.otherWhite = otWH;
 		this.WhiBlacCar =  wb;
 		this.whiBlackAff = wba;
@@ -42,7 +42,7 @@ public class LondonEthnicGroup {
 	public int getOtherWhite(){
 		return this.otherWhite;
 	}
-	public int WhiteBlackCaribbean(){
+	public int getWhiteBlackCaribbean(){
 		return this.WhiBlacCar;
 	}
 	public int getWhiteBlackAfrican(){
@@ -80,5 +80,14 @@ public class LondonEthnicGroup {
 	}
 	public int getOtherEthicGroup(){
 		return this.otherEtnicGroup;
+	}
+	@Override
+	public String toString(){
+		return this.getBorough() +",  "+ this.getAllPeople() + ",  "+ this.getWhiteBrithish() +", "+ 
+				this.getWhiteIrish()+", "+ this.getOtherWhite() +", "+ this.getWhiteBlackCaribbean() +", "+
+				this.getWhiteBlackAfrican() +", "+ this.getWhiteAsian() +", " + this.getOtherMixed() + ", " +
+				this.getIndian() +", " +this.getPakistani()+ ", " + this.getBangladeshi() + ", " + 
+				this.getOtherAsian() +", " + this.getCaribbeanBlackBrithish() +", " + this.getAfricanBlackBritish() +", " +
+				this.getOtherBlackBritish() + ", " + this.getChinese() + ", " + this.getOtherEthicGroup();
 	}
 }

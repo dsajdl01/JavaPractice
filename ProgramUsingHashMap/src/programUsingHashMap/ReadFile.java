@@ -2,7 +2,6 @@ package programUsingHashMap;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,7 +22,7 @@ public class ReadFile {
 	        	if(validateProperty(LA[i], LA[i+1], LA[i +2], LA[i+3], LA[i+4], LA[i+5], LA[i+6], LA[i+7])){
 	        		double AREA = Double.parseDouble(LA[i+7].trim());
 	        		Property pr = new Property(getInt(LA[i+1]),getInt(LA[i +2]), getInt(LA[i+3]), getInt(LA[i+4]), getInt(LA[i+5]), getInt(LA[i+6]), AREA);
-	           		map.put(LA[i], pr);
+	           		map.put(LA[i].trim(), pr);
 	        	} else {
 	        		throw new TheException("Data is not validated, in the line: " 
 	        				+LA[i]+", "+LA[i+1]+", "+LA[i +2]+", "+LA[i+3]+", "+LA[i+4]+", "+LA[i+5]+", "+LA[i+6]+", "+LA[i+7]);
@@ -65,7 +64,7 @@ public class ReadFile {
             	String[] a = line.split(",");
             	if(arrayIsValid(a)){
             		leg = new LondonEthnicGroup((a[1]),getInt(a[2]),getInt(a[3]),getInt(a[4]),getInt(a[5]),getInt(a[6]),getInt(a[7]),getInt(a[8]),getInt(a[9]),getInt(a[10]),getInt(a[11]),getInt(a[12]),getInt(a[13]),getInt(a[14]),getInt(a[15]),getInt(a[16]),getInt(a[17]),getInt(a[18]));
-            		hash.put(a[0], leg);
+            		hash.put(a[0].trim(), leg);
             	} else {
             		throw new TheException ("Data is not validated, on line: " + line);
             	}
