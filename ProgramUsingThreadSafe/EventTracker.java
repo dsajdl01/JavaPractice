@@ -17,10 +17,11 @@ public class EventTracker {
 		this.container_statuses = new status[] {status.NOT_RECIEVE, status.NOT_RECIEVE, status.NOT_RECIEVE, status.NOT_RECIEVE, status.NOT_RECIEVE };		
 	}
 	// method to change status only for INITIAL type event
-	public void setFirstAsSent(TheLocker lock) throws InterruptedException{
+	public void setFirstAsSent(Event e, TheLocker lock) throws InterruptedException{
 		lock.lock();
 		if(container_statuses[0] == status.NOT_RECIEVE){
-			container_statuses[0] = status.SENT;
+			container_statuses[0] = status.STORED;
+			container[0] = e;
 		}
 		lock.unLock();
 		// else only if the method is called in wrong order
