@@ -6,7 +6,7 @@ import java.util.Calendar;
 /**
  * 
  *  @author David Sajdl
- *  @date 41/07/2015
+ *  @date 14/07/2015
  */
 public class Events implements Event{
 
