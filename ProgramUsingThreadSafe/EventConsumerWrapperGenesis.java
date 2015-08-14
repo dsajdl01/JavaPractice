@@ -14,7 +14,7 @@ import java.util.Map;
 public class EventConsumerWrapperGenesis extends EventConsumerWrapper {
 
 	private Map<String, Event> event;
-	private Event e;
+	String consumerEventType = null;
 	
 	public EventConsumerWrapperGenesis(){
 		event = Collections.synchronizedMap(new HashMap<String, Event>());
@@ -25,33 +25,39 @@ public class EventConsumerWrapperGenesis extends EventConsumerWrapper {
 
 	@Override
 	public synchronized void consumeEvent(Event theEvent) {
-		this.e = theEvent;
-		String type = theEvent.getEventType();
+		this.consumerEventType = theEvent.getEventType();
 		String id = theEvent.getEventId();
 		synchronized(event) {
-			if(event.containsKey(id)){
-				System.out.println(id + ", "+type);
-			} else {
+			//checking if id exist in tracker or map
+			if(!event.containsKey(id)){
 				event.put(id, theEvent);
 			}
 		}
 	}
-
-	public Event currentReceivedEvent(){
-		return this.e;
+	
+	public synchronized int getNumberOfStoredEvents(){
+		return event.size();
 	}
+	
+	public synchronized String getLastReceivedEventType(){
+		return this.consumerEventType;
+	}
+	
 	public void printAllEvents(){
 		synchronized(event){
+			int count = 1;
 			for(Map.Entry<String, Event> map: event.entrySet()){
 				Event value =map.getValue();
 				String date = getDate(value.getEventTimestemp());
-				System.out.println("Event ID: " + map.getKey()
+				System.out.println(count +") Event ID: " + map.getKey()
 						+ ", Event current type: " + value.getEventType()
 						+ ", Event Date and time: " + date);
+				count++;
 			}
 		}
 	}
-	private String getDate(Calendar cal){
+	
+	private synchronized String getDate(Calendar cal){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		cal = Calendar.getInstance();
 		return  dateFormat.format(cal.getTime());
