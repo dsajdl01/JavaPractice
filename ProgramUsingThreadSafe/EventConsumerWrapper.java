@@ -58,8 +58,6 @@ public class EventConsumerWrapper implements EventConsumer{
 					if(event == null){
 						toSent = false;
 					} else {
-						System.out.println(event);
-						System.out.println(ecwrapper);
 						this.ecwrapper.consumeEvent(event);
 					}
 				}
@@ -74,8 +72,12 @@ public class EventConsumerWrapper implements EventConsumer{
 		}catch(InterruptedException ie){
 			ie.printStackTrace();
 		}catch(Exception e){
-			System.out.println(e.getMessage());
-//			e.printStackTrace();
+			e.printStackTrace();
 		}
+	}
+	// get tracker size 
+	//it is just for unit test if event object is removed when all types are sent
+	public synchronized int countTrackerHasSize(){
+		return tracker.size();
 	}
 }
