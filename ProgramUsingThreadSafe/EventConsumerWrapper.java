@@ -11,22 +11,22 @@ import java.util.Map;
 
 import tests.task2.EventTracker;
 
-public class EventConsumerWrapper implements EventConsumer {
+public class EventConsumerWrapper implements EventConsumer{
 	
-	private EventConsumerWrapper ecw;
+	private EventConsumerWrapper ecwrapper;
 	private Map<String, EventTracker> tracker;
 	
 	
 	public EventConsumerWrapper(){}
 	
 	public EventConsumerWrapper(EventConsumerWrapper obj){
-		this.ecw = obj.ecw;
+		this.ecwrapper = obj;
 		tracker = Collections.synchronizedMap(new HashMap<String, EventTracker>());
 	}
 
 	@Override
 	public synchronized void consumeEvent(Event theEvent) {
-		
+	
 		try {
 				// get id and type
 				String type = theEvent.getEventType();
@@ -46,7 +46,7 @@ public class EventConsumerWrapper implements EventConsumer {
 				locker.lock();
 				// add or update eventTracker
 				if(type.equals("INITIAL")){
-					et.setFirstAsSent(locker);
+					et.setFirstAsSent(theEvent, locker);
 				} else {
 					et.addEvent(theEvent, locker);
 				}
@@ -58,11 +58,12 @@ public class EventConsumerWrapper implements EventConsumer {
 					if(event == null){
 						toSent = false;
 					} else {
-						this.ecw.consumeEvent(event);
+						System.out.println(event);
+						System.out.println(ecwrapper);
+						this.ecwrapper.consumeEvent(event);
 					}
 				}
-				locker.unLock();
-				
+				locker.unLock();	
 				// remove the event from the tracker if all the events types have been sent
 				synchronized(tracker){ 
 					if(et.getStoreCount() == 0){
@@ -73,7 +74,8 @@ public class EventConsumerWrapper implements EventConsumer {
 		}catch(InterruptedException ie){
 			ie.printStackTrace();
 		}catch(Exception e){
-			e.printStackTrace();
+			System.out.println(e.getMessage());
+//			e.printStackTrace();
 		}
 	}
 }
