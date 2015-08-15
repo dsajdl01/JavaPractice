@@ -27,7 +27,7 @@ public class EventTracker {
 		// else only if the method is called in wrong order
 	}
 	// method to change status events type to STORED 
-	public void addEvent(Event e, TheLocker lock) throws InterruptedException{
+	public void addEvent(Event e, TheLocker lock) throws InterruptedException, UnknownTypeException{
 		lock.lock();
 		switch(e.getEventType()){
 			case "INITIAL":
@@ -51,10 +51,10 @@ public class EventTracker {
 				container[4] = e;
 				break;
 			default:
-				System.out.println("Unknown evene type: " + e.getEventType());
-				// or to throw new exception
-				break;
-				
+				throw new UnknownTypeException( "Unknown event type: " + e.getEventType());
+				// or just print message
+				//System.out.println("Unknown event type: " + e.getEventType());
+								
 		}
 		lock.unLock();
 	}
