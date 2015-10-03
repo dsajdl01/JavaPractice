@@ -1,0 +1,21 @@
+id ,color,sleeves,quality,price,quantity
+1,blue,short,100,12,15
+2,white,long,80,12,20
+3,grey,short,50,8,15
+4,white,long,100,15,10
+5,white,short,50,8,30
+6,blue,short,50,8,25
+7,blue,long,100,15,15
+8,grey,long,100,15,8
+9,blue,short,80,10,15
+10,blue,long,50,9,15
+11,grey,long,50,9,20
+12,grey,long,80,12,5
+13,white,short,100,12,15
+14,blue,long,80,12,15
+15,grey,short,100,12,5
+16,white,long,50,9,10
+17,white,short,80,10,20
+18,grey,short,80,10,10
+19,yellow ,short,100,12,3
+20,green ,short,100,12,3
