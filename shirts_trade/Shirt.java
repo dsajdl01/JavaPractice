@@ -1,5 +1,11 @@
 package shirt_trade;
 
+/**
+ * Class Shirt
+ * 
+ * @author David Sajdl 
+ * @version 7
+ */
 public class Shirt implements Product {
 	
 	private int id; 
@@ -8,12 +14,7 @@ public class Shirt implements Product {
 	private int qual; 
 	private double price; 
 	private int quan; 
-	/**
-	 * Class Shirt
-	 * 
-	 * @author David Sajdl 
-	 * @version 7
-	 */
+	
 	public Shirt(int id, String color, String sleevs, int qual, double price, int quan){ 
 	       this.id = id; 
 	       this.color = color; 
@@ -52,6 +53,9 @@ public class Shirt implements Product {
 	public double getPrice() {
 		// TODO Auto-generated method stub
 		return this.price;
+	}
+	public void addPrice(double price){
+		this.price += price;
 	}
 
 	@Override
