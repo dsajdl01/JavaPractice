@@ -11,12 +11,7 @@ import java.net.URL;
  * @version 7
  */
 public class ReadCsvFiles {
-	
-	String content;
-	
-	public ReadCsvFiles(){
-		content = null;
-	}
+
 	
 	public BufferedReader readCSVFileFromWebsite(String url) throws IOException{
 		URL stockURL = new URL(url);
